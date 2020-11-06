@@ -112,7 +112,7 @@ detect_mac80211() {
 			set wireless.default_radio${devidx}.mode=ap
 			set wireless.default_radio${devidx}.ssid=OpenWrt_$(cat /sys/class/ieee80211/${dev}/macaddress|awk -F ":" '{print $1""$2""$3 }'| tr a-z A-Z)
 			set wireless.default_radio${devidx}.encryption=psk2
-      set wireless.default_radio${devidx}.key=yourpassword
+			set wireless.default_radio${devidx}.key=yourpassword
 EOF
 		uci -q commit wireless
 
