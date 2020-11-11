@@ -119,7 +119,7 @@ sed -i "s/OpenWrt /GDRST build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" packag
 sed -i 's/192.168.1.1/192.168.123.1/g' package/base-files/files/bin/config_generate
 
 # 设置更改默认密码（需要提前SHA512加密）
-# sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root::0:0:99999:7:::/g' package/lean/default-settings/files/zzz-default-settings
+sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root::0:0:99999:7:::/g' package/lean/default-settings/files/zzz-default-settings   # 密码留空
 
 # 设置更改默认主机名为MyHome
 # sed -i 's/OpenWrt/GDRS/g' package/base-files/files/bin/config_generate
