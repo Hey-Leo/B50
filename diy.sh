@@ -71,6 +71,8 @@ git clone https://github.com/Hey-Leo/GDrcoms.git package/mine/GDrcoms
 chmod 755 package/mine/GDrcoms/root/etc/init.d/gdut-drcom
 chmod 755 package/mine/GDrcoms/root/usr/bin/gdut-drcom-patch
 chmod 755 package/mine/GDrcoms/root/usr/bin/gdut-drcom-unpatch
+# 更改wan接口
+sed -i "s/network.wan_wan_dev.macaddr/network.wan_eth0_2_dev.macaddr/g" package/mine/GDrcoms/root/etc/init.d/gdut-drcom
 # 内核修改UA
 # git clone -b dev https://github.com/CHN-beta/xmurp-ua.git package/mine/xmurp-ua
 #-------------------------------------------------------------------------------------------------- 
