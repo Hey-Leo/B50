@@ -1,0 +1,9 @@
+
+config gdut_drcom
+	option enable_crypt '1'
+	option interface 'wan'
+	option username ''
+	option password ''
+	option keep_alive1_flag '2f'
+	option remote_ip '10.0.3.6'
+
