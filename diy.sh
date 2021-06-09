@@ -115,8 +115,8 @@ sed -i "s/OpenWrt /GDRST build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" packag
 #==================================================================================================
 # 以下框内都可通过files文件自定义（以根目录files内文件为准）
 #==================================================================================================
-# 设置更改默认ip为192.168.199.1
-sed -i 's/192.168.1.1/192.168.123.1/g' package/base-files/files/bin/config_generate
+# 设置更改默认ip为192.168.123.1
+# sed -i 's/192.168.1.1/192.168.123.1/g' package/base-files/files/bin/config_generate
 
 # 设置更改默认密码（需要提前SHA512加密）
 sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root::0:0:99999:7:::/g' package/lean/default-settings/files/zzz-default-settings   # 密码留空
@@ -125,7 +125,7 @@ sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root::0:0:99999
 # sed -i 's/OpenWrt/GDRS/g' package/base-files/files/bin/config_generate
 
 # 设置更改默认WiFi名
-sed -i 's/OpenWrt/GDRS/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+# sed -i 's/OpenWrt/GDRS/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 ### sed -i 's/OpenWrt/GDRS_$(cat /sys/class/ieee80211/${dev}/macaddress|awk -F ":" '{print $4""$5""$6 }'| tr a-z A-Z)/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh   # 语法错误，请直接修改文件
 #==================================================================================================
 
