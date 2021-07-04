@@ -116,7 +116,7 @@ sed -i "s/OpenWrt /GDRST build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" packag
 # 以下框内都可通过files文件自定义（以根目录files内文件为准）
 #==================================================================================================
 # 设置更改默认ip为192.168.123.1
-# sed -i 's/192.168.1.1/192.168.123.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.199.1/g' package/base-files/files/bin/config_generate
 
 # 设置更改默认密码（需要提前SHA512加密）
 sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root::0:0:99999:7:::/g' package/lean/default-settings/files/zzz-default-settings   # 密码留空
