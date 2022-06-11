@@ -22,7 +22,7 @@ git clone https://github.com/jerrykuku/luci-app-argon-config.git package/mine/lu
 # 科学
 #--------------------------------------------------------------------------------------------------
 # helloworld
-# git clone https://github.com/fw876/helloworld.git package/mine/helloworld
+git clone https://github.com/fw876/helloworld.git package/mine/helloworld
 
 # Hello World (A new luci app bese helloworld)
 # git clone https://github.com/jerrykuku/lua-maxminddb.git package/mine/lua-maxminddb  # lua-maxminddb 依赖
@@ -66,13 +66,13 @@ git clone https://github.com/jerrykuku/luci-app-argon-config.git package/mine/lu
 # Drcom6.0(p)
 #-------------------------------------------------------------------------------------------------- 
 # GDrcoms（Dr.com插件）
-git clone https://github.com/Hey-Leo/GDrcoms.git package/mine/GDrcoms
+# git clone https://github.com/Hey-Leo/GDrcoms.git package/mine/GDrcoms
 # 缺少的权限
-chmod 755 package/mine/GDrcoms/root/etc/init.d/gdut-drcom
-chmod 755 package/mine/GDrcoms/root/usr/bin/gdut-drcom-patch
-chmod 755 package/mine/GDrcoms/root/usr/bin/gdut-drcom-unpatch
+# chmod 755 package/mine/GDrcoms/root/etc/init.d/gdut-drcom
+# chmod 755 package/mine/GDrcoms/root/usr/bin/gdut-drcom-patch
+# chmod 755 package/mine/GDrcoms/root/usr/bin/gdut-drcom-unpatch
 # 更改wan接口
-sed -i "s/wan_dev/eth0_2_dev/g" package/mine/GDrcoms/root/etc/init.d/gdut-drcom
+# sed -i "s/wan_dev/eth0_2_dev/g" package/mine/GDrcoms/root/etc/init.d/gdut-drcom
 # 内核修改UA
 # git clone -b dev https://github.com/CHN-beta/xmurp-ua.git package/mine/xmurp-ua
 #-------------------------------------------------------------------------------------------------- 
@@ -96,12 +96,12 @@ sed -i "s/wan_dev/eth0_2_dev/g" package/mine/GDrcoms/root/etc/init.d/gdut-drcom
 # 编译说明增加
 #==================================================================================================
 # 增加说明版本号/编译时间
-sed -i "s/OpenWrt /GDRST build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
+sed -i "s/OpenWrt /Hey-Leo build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 
 # 增加说明核心编译作者
 [ -z $(grep "CONFIG_KERNEL_BUILD_USER=" .config) ] &&
-    echo 'CONFIG_KERNEL_BUILD_USER="GDRST"' >>.config ||
-    sed -i 's@\(CONFIG_KERNEL_BUILD_USER=\).*@\1$"GDRST"@' .config
+    echo 'CONFIG_KERNEL_BUILD_USER="Hey-Leo"' >>.config ||
+    sed -i 's@\(CONFIG_KERNEL_BUILD_USER=\).*@\1$"Hey-Leo"@' .config
 
 # 增加说明核心编译环境
 [ -z $(grep "CONFIG_KERNEL_BUILD_DOMAIN=" .config) ] &&
@@ -115,11 +115,11 @@ sed -i "s/OpenWrt /GDRST build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" packag
 #==================================================================================================
 # 以下框内都可通过files文件自定义（以根目录files内文件为准）
 #==================================================================================================
-# 设置更改默认ip为192.168.123.1
-sed -i 's/192.168.1.1/192.168.199.1/g' package/base-files/files/bin/config_generate
+# 设置更改默认ip为192.168.31.1
+sed -i 's/192.168.1.1/192.168.31.1/g' package/base-files/files/bin/config_generate
 
 # 设置更改默认密码（需要提前SHA512加密）
-sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root::0:0:99999:7:::/g' package/lean/default-settings/files/zzz-default-settings   # 密码留空
+# sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root::0:0:99999:7:::/g' package/lean/default-settings/files/zzz-default-settings   # 密码留空
 
 # 设置更改默认主机名为MyHome
 # sed -i 's/OpenWrt/GDRS/g' package/base-files/files/bin/config_generate
